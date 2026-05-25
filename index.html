@@ -216,7 +216,7 @@
                 <p>每题仅选一项，总分自动累加。</p>
                 <p>完成测评后，您将获得一份专属的亲子关系诊断报告。</p>
                 <br>
-                <button class="btn-next" onclick="startTest()" style="width: 100%;">开始测评</button>
+                <button class="btn-next" id="startBtn" style="width: 100%;">开始测评</button>
             </div>
             
             <div class="progress" id="progressContainer">
@@ -226,9 +226,9 @@
             <div id="questionsContainer" style="display: none;"></div>
             
             <div class="buttons" id="navButtons" style="display: none;">
-                <button class="btn-prev" onclick="prevQuestion()">上一题</button>
-                <button class="btn-next" id="nextBtn" onclick="nextQuestion()">下一题</button>
-                <button class="btn-submit" id="submitBtn" onclick="submitTest()" style="display: none;">查看结果</button>
+                <button class="btn-prev" id="prevBtn">上一题</button>
+                <button class="btn-next" id="nextBtn">下一题</button>
+                <button class="btn-submit" id="submitBtn" style="display: none;">查看结果</button>
             </div>
         </div>
     </div>
@@ -418,6 +418,18 @@
                 if (submitBtn) submitBtn.style.display = 'none';
             }
         }
+        
+        // 开始测评按钮
+        document.getElementById('startBtn').addEventListener('click', startTest);
+        
+        // 上一题按钮
+        document.getElementById('prevBtn').addEventListener('click', prevQuestion);
+        
+        // 下一题按钮
+        document.getElementById('nextBtn').addEventListener('click', nextQuestion);
+        
+        // 查看结果按钮
+        document.getElementById('submitBtn').addEventListener('click', submitTest);
         
         function nextQuestion() {
             if (answers[currentQuestion] === null) {
