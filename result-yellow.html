@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测评结果 - 亲子关系温度计</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .result-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .result-score {
+            font-size: 72px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .result-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .result-desc {
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .result-suggestion {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .result-suggestion h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .course-promotion {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .course-promotion h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+        
+        .course-promotion p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .course-promotion .highlight {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffd700;
+            margin: 20px 0;
+        }
+        
+        .btn-course {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .btn-course:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .restart {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn-restart {
+            background: #6c757d;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn-restart:hover {
+            background: #5a6268;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result-header">
+            <h1>🌡️ 亲子关系温度计</h1>
+            <div class="result-score" id="score">🟠 0分</div>
+            <div class="result-title">亲子关系"黄灯"——危机潜伏，需要重点改善</div>
+            <div class="result-desc">您的亲子关系处于亚健康状态。日常沟通尚可，但深层次信任和冲突管理存在明显短板。孩子可能已经学会"报喜不报忧"或在某些话题上回避你。</div>
+        </div>
+        
+        <div class="content">
+            <div class="result-suggestion">
+                <h3>🔧 改善建议</h3>
+                <p><strong>本周内尝试"深度倾听"</strong>——当孩子说话时，你只点头、不评判、不给建议，坚持听完5分钟。</p>
+                <p>每周至少一次"家庭无屏幕时间"，一起做饭或散步。</p>
+                <p>同时，建议您参加亲子关系课程，系统学习沟通技巧。</p>
+            </div>
+            
+            <div class="course-promotion">
+                <h2>🎓 想进一步提升亲子关系？</h2>
+                <p>我们特别邀请您参加：</p>
+                <div class="poster-container" style="margin: 20px 0;">
+                    <img src="course-poster.jpg" alt="3天亲子关系破冰课" style="max-width: 100%; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.3);">
+                </div>
+                <p style="margin-top: 15px; color: #ffd700; font-weight: bold;">📱 长按识别二维码，添加微信免费入群</p>
+            </div>
+            
+            <div class="restart">
+                <button class="btn-restart" onclick="restartTest()">重新测评</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 从URL获取分数
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = urlParams.get('score') || 0;
+        document.getElementById('score').textContent = `🟠 ${score}分`;
+        
+        function restartTest() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
