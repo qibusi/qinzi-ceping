@@ -394,6 +394,14 @@
         function selectOption(qIndex, optIndex) {
             answers[qIndex] = optIndex;
             showQuestion(qIndex);
+            
+            // 选择后自动跳转下一题
+            if (qIndex < questions.length - 1) {
+                currentQuestion = qIndex + 1;
+                showQuestion(currentQuestion);
+            } else {
+                updateButtons();
+            }
         }
         
         function updateProgress() {
